@@ -7,7 +7,6 @@ function validarDados(cliente){
     var telefone = validarTelefone(cliente.telefone);
 	var sexo = cliente.sexo == 'F' || cliente.sexo == 'M'
     var data_de_nascimento = cliente.data_de_nascimento != undefined || cliente.data_de_nascimento != "";
-    
 	return nome  && email && telefone && sexo && data_de_nascimento 
 
 }
@@ -58,7 +57,7 @@ function validarCPF(cpf) {
 	if (rev != parseInt(cpf.charAt(10)))
 		return false;	
 		
-	return parseInt(cpf);   
+	return cpf;   
 }
 
 function validarEmail(email) {
@@ -67,8 +66,8 @@ function validarEmail(email) {
 }
 
 function validarTelefone (telefone) {
-    var regex = new RegExp('^\\([0-9]{2}\\)((3[0-9]{3}-[0-9]{5})|(9[0-9]{3}-[0-9]{4}))$');
-    return regex.test(telefone) && telefone != undefined & email != "";
+    var regex = new RegExp('^\\([0-9]{2}\\)((3[0-9]{3}-[0-9]{4})|(9[0-9]{3}-[0-9]{5}))$');
+    return regex.test(telefone) && telefone != undefined && telefone != "";
 }
 
 module.exports =  {validarDados,validarCPF};

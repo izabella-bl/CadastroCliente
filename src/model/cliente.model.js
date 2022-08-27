@@ -3,14 +3,15 @@ const connection = require("../database/database");
 
 const Cliente = connection.define('cliente',{
     id:{
-        type:Sequelize.INTEGER,
+        type: Sequelize.BIGINT,
+        primaryKey: true,
         autoIncrement: true,
-        primaryKey: true
+        allowNull: false,
     },nome:{
         type:Sequelize.STRING,
         allowNull:false
     }, cpf:{
-        type:Sequelize.INTEGER,
+        type:Sequelize.STRING,
         allowNull:false
     }, email:{
         type:Sequelize.STRING,
@@ -26,6 +27,7 @@ const Cliente = connection.define('cliente',{
         allowNull:false
     }
 });
-
  
+// Cliente.sync({force:true});   
+
 module.exports = Cliente;

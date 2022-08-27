@@ -2,11 +2,10 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const connection = require("./src/database/database");
-
+const cors = require("cors");
 const clienteController = require("./src/controller/cliente.controller");
 
-app.set('view engine','ejs');
-
+app.use(cors());
 app.use(express.static('public'));
 
 app.use(bodyParser.urlencoded({extended: false}));
