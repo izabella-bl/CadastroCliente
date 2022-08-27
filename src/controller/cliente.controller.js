@@ -6,6 +6,8 @@ const service = require('../service/cliente.service')
 router.get("/clientes", (req, res) => {
   Cliente.findAll().then((users) => {
      return res.status(200).json(users);
+  }).catch((erro)=>{
+    return res.sendStatus(400);
   });
 });
 
